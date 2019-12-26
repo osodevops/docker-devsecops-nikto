@@ -4,6 +4,8 @@ MAINTAINER OSO DevOps (https://github.com/osodevops)
 
 RUN apk add --update git
 
+#force fresh git clone each build.
+ADD https://api.github.com/repos/sullo/nikto/git/refs/heads/master version.json
 RUN mkdir /source /nikto && cd /source && git clone https://github.com/sullo/nikto.git
 
 RUN mv /source/nikto/program/* /nikto/
